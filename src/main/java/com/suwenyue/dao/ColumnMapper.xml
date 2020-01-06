@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.suwenyue.dao.ColumnMapper">
+	<select id="selects" resultType="com.suwenyue.domain.Column">
+		SELECT * FROM pk_column
+	</select>
+	
+	<insert id="adds">
+		INSERT INTO pk_column (pkid,pkgjz,pkms,pkname,pkcp,pkadress,pkprice,pkctime)VALUES
+		<foreach collection="list" item="c" separator=",">
+		 (#{c.pkid},#{c.pkgjz},#{c.pkms},#{c.pkname},#{c.pkcp},#{c.pkadress},#{c.pkprice},#{c.pkctime})
+		 </foreach>
+	</insert>
+</mapper>
